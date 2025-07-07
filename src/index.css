@@ -3,8 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color-scheme: dark;
   background-color: #242424;
 
   font-synthesis: none;
@@ -28,43 +27,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-.nameContainer {
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: black;
-  position: relative;
-  display: inline-block;
-  background: black;
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.8s ease;
-
-  .red {
-    color: red;
-    -webkit-text-fill-color: red; /* Keep red letters solid */
-    background: none;
-    -webkit-background-clip: border-box; /* Disable background-clip for red letters */
-  }
-}
-
-.nameContainer:hover {
-  background: linear-gradient(
-    90deg,
-    /* Left to right */ black 0%,
-    black 40%,
-    white 50%,
-    black 60%,
-    black 100%
-  );
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.8s ease;
-
-  background-position: 100% 0;
 }
 
 button {

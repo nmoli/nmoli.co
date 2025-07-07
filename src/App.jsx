@@ -1,27 +1,51 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import Colours from "./constants/Colors";
+import "./globalStyles.css";
+import runGameLoop, {
+  handleMouseClicked,
+  handleMouseMove,
+  handleMouseReleased,
+} from "./waves/runGameLoop";
+import MainContent from "./page/MainContent.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [forceUpdate, setForceUpdate] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseClicked);
+    window.addEventListener("mouseup", handleMouseReleased);
+
+    runGameLoop(undefined, setForceUpdate);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseClicked);
+      window.removeEventListener("mouseup", handleMouseReleased);
+    };
+  }, []);
 
   return (
-    <>
-      <div className="nameContainer">
-        <span className="red">N</span>ick <span className="red">M</span>olinari
-      </div>
-      <div>I like building cool things.</div>
-      <div>
-        I like interfacing with new technologies, I like hard logic and
-        optimization problems, I like algorithms.
-      </div>
-      <div>
-        I can be interested in pretty much anything if you give me a large
-        complicated problem and let me chew through it.
-      </div>
-    </>
+    <Container>
+      <MainContent />
+      <canvas id="wave-canvas"></canvas>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  color: ${Colours.TEXT_PRIMARY};
+
+  #wave-canvas {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+`;
