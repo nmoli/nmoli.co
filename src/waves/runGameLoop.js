@@ -22,6 +22,8 @@ let lastMouseY = undefined;
 let prevMouseX = 0;
 let prevMouseY = 0;
 
+let starBubbleEngineDemo = null;
+
 export function handleMouseMove(event) {
   const canvas = document.getElementById("wave-canvas");
   if (canvas instanceof HTMLCanvasElement) {
@@ -42,6 +44,22 @@ export function handleMouseReleased(event) {
 
 export function turnOnDoggoPostShitter() {
   isDoggoPostShitterOn = true;
+}
+
+export function turnOnStarBubbleEngineDemo(isOff) {
+  if (isOff) {
+    starBubbleEngineDemo = null;
+  }
+
+  if (starBubbleEngineDemo) {
+    starBubbleEngineDemo.remove();
+  }
+  starBubbleEngineDemo = document.getElementById("star-bubble-demo");
+  if (starBubbleEngineDemo) {
+    starManagerRed = new StarManager();
+    const rect = drawRectAtDiv(starBubbleEngineDemo);
+    starManagerRed.addStarsInOrder(rect, 2);
+  }
 }
 
 export function toggleConfigs() {}

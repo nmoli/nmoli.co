@@ -4,6 +4,9 @@ import SampleProject from "./projects/SampleProject";
 import { useEffect, useRef, useState } from "react";
 import TiltedCard from "../components/TiltedCard";
 import Stroll from "./projects/Stroll";
+import EcoLogical from "./projects/EcoLogical";
+import SQC from "./projects/SQC";
+import StarBubble from "./projects/StarBubble";
 
 const ProjectsGrid = ({ setInfoPanelContent }) => {
   const [clickedProject, setClickedProject] = useState(null);
@@ -25,18 +28,18 @@ const ProjectsGrid = ({ setInfoPanelContent }) => {
       url: "/public/projects/stroll_ico.png",
     },
     {
-      name: "Sample Project 1",
-      component: SampleProject,
+      name: "EcoLogical",
+      component: EcoLogical,
+      url: "/public/projects/eco_ico.png",
+    },
+    {
+      name: "Secret Queen Chess",
+      component: SQC,
       url: "/public/girl.jpg",
     },
     {
-      name: "Sample Project 2",
-      component: SampleProject,
-      url: "/public/girl.jpg",
-    },
-    {
-      name: "Sample Project 3",
-      component: SampleProject,
+      name: "StarBubble Engine",
+      component: StarBubble,
       url: "/public/girl.jpg",
     },
   ];

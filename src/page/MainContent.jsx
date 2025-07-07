@@ -58,6 +58,10 @@ const Container = styled.div`
 
   // padding: 4rem;
 
+  a {
+    color: ${Colors.ACCENT_SOFT};
+  }
+
   .os-scrollbar {
     // margin-right: 0.5rem;
     left: 10px;
