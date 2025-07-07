@@ -22,27 +22,12 @@ export default () => {
       <Text size="16px" color={Colors.TEXT_MUTED}>
         Puzzle platformer where the platforms you draw persist between levels.
       </Text>
-      <TiltedCard
-        imageSrc="/public/projects/messenger_graph_2.png"
-        className="graphImg"
-        containerHeight="337px"
-        containerWidth="100%"
-        imageHeight="337px"
-        imageWidth="100%"
-        rotateAmplitude={2}
-        scaleOnHover={1.1}
-        showMobileWarning={false}
-        showTooltip={true}
-        displayOverlayContent={true}
-      />
-      <div style={{ textAlign: "center", width: "100%", marginTop: "0.5rem" }}>
-        <Text size="16px" color={Colors.TEXT_MUTED}>
-          My chat distribution throughout 2015 - 2021
-        </Text>
-        <Text size="16px" color={Colors.TEXT_MUTED}>
-          one bar = one month
-        </Text>
-      </div>
+      <iframe
+        src="https://youtu.be/DLAJrwrumFQ"
+        frameBorder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; autoplay"
+        allowFullScreen="allowfullscreen"
+      ></iframe>
     </Container>
   );
 };
