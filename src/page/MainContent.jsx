@@ -19,27 +19,27 @@ const MainContent = () => {
     {
       name: "Dogechat",
       component: DogeChat,
-      url: "/public/projects/react_wheel_3.png",
+      url: "docs/assets/react_wheel_3.png",
     },
     {
       name: "StarBubble Engine",
       component: "StarBubble Engine",
-      url: "/public/projects/starbubble.png",
+      url: "docs/assets/starbubble.png",
     },
     {
       name: "Messenger",
       component: SampleProject,
-      url: "/public/projects/messenger_graph.png",
+      url: "docs/assets/messenger_graph_2_anonymized.png",
     },
     {
       name: "Stroll",
       component: Stroll,
-      url: "/public/projects/stroll_ico.png",
+      url: "docs/assets/stroll_ico.png",
     },
     {
       name: "EcoLogical",
       component: EcoLogical,
-      url: "/public/projects/eco_ico.png",
+      url: "docs/assets/eco_ico.png",
     },
   ];
 

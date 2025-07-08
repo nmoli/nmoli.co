@@ -29,12 +29,12 @@ export default ({ changeProject }) => {
       </Text>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
-          src="/public/projects/messenger_graph_2_anonymized.png"
+          src="docs/assets/messenger_graph_2_anonymized.png"
           className="graphImg"
         />
       </div>
       {/* <TiltedCard
-        imageSrc="/public/projects/messenger_graph_2.png"
+        imageSrc="docs/assets/messenger_graph_2.png"
         className="graphImg"
         containerHeight="337px"
         containerWidth="100%"
@@ -47,7 +47,7 @@ export default ({ changeProject }) => {
         displayOverlayContent={true}
       />
       <TiltedCard
-        imageSrc="/public/projects/messenger_graph_2.png"
+        imageSrc="docs/assets/messenger_graph_2.png"
         className="graphImg"
         containerHeight="337px"
         containerWidth="100%"

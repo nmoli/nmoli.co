@@ -76,7 +76,7 @@ export default () => {
       </Text>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <img
-          src="/public/projects/stroll_physics.png"
+          src="docs/assets/stroll_physics.png"
           className="graphImg"
           style={{ maxWidth: "400px" }}
         />
