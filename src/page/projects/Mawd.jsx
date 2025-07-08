@@ -68,7 +68,7 @@ export default () => {
             style={{ display: "flex", placeContent: "center", width: "100%" }}
           >
             <img
-              src="nmoli.co/assets/react_wheel.png"
+              src="/nmoli.co/assets/react_wheel.png"
               className="graphImg"
               style={{
                 maxWidth: "191px",

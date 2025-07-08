@@ -29,12 +29,12 @@ export default ({ changeProject }) => {
       </Text>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
-          src="nmoli.co/assets/messenger_graph_2_anonymized.png"
+          src="/nmoli.co/assets/messenger_graph_2_anonymized.png"
           className="graphImg"
         />
       </div>
       {/* <TiltedCard
-        imageSrc="nmoli.co/assets/messenger_graph_2.png"
+        imageSrc="/nmoli.co/assets/messenger_graph_2.png"
         className="graphImg"
         containerHeight="337px"
         containerWidth="100%"
@@ -47,7 +47,7 @@ export default ({ changeProject }) => {
         displayOverlayContent={true}
       />
       <TiltedCard
-        imageSrc="nmoli.co/assets/messenger_graph_2.png"
+        imageSrc="/nmoli.co/assets/messenger_graph_2.png"
         className="graphImg"
         containerHeight="337px"
         containerWidth="100%"
