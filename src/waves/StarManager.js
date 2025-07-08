@@ -13,6 +13,7 @@ let pointsToSpawnIn = [];
 class StarManager {
   constructor() {
     this.stars = [];
+    this.managerID = Math.random().toString(36).substring(2, 15);
   }
 
   addStarsInOrder(points, isConnected = true) {
@@ -32,6 +33,7 @@ class StarManager {
       prevStar.outStars.push(star);
       star.inStars.push(prevStar);
       prevStar = star;
+      star.managerID = this.managerID;
       this.stars.push(star);
     }
 
@@ -180,22 +182,21 @@ class StarManager {
         smallestDistanceEncountered !== 1000000 // TODO: Deosnt really handle this case
       ) {
         if (!nextStarsLinear[smallestDistanceNextStarIndex]) {
-          console.log("XD ! TROLL? FUCKER!!");
-          console.log(smallestDistanceNextStarIndex);
-          console.log(smallestDistanceEncountered);
-          console.log(nextStarsLinear);
-          console.log(starsLinear);
+          // console.log(smallestDistanceNextStarIndex);
+          // console.log(smallestDistanceEncountered);
+          // console.log(nextStarsLinear);
+          // console.log(starsLinear);
         }
         star.wouldLikeToBeStar = nextStarsLinear[smallestDistanceNextStarIndex];
         try {
           star.wouldLikeToBeStar.inStars =
             nextStarsLinear[smallestDistanceNextStarIndex].inStars;
         } catch (e) {
-          console.log(starsLinear);
-          console.log(nextStarsLinear);
-          console.log(star.wouldLikeToBeStar);
-          console.log(smallestDistanceNextStarIndex);
-          console.log(nextStarsLinear[smallestDistanceNextStarIndex]);
+          // console.log(starsLinear);
+          // console.log(nextStarsLinear);
+          // console.log(star.wouldLikeToBeStar);
+          // console.log(smallestDistanceNextStarIndex);
+          // console.log(nextStarsLinear[smallestDistanceNextStarIndex]);
           throw e;
         }
         star.wouldLikeToBeStar.outStars =

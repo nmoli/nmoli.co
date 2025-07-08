@@ -40,18 +40,20 @@ export default () => {
         </Text>
       </div> */}
       <Text size="16px" color={Colors.TEXT_MUTED} className="descriptionText">
-        This little game was made in 48h for the game jam{" "}
+        This game was made in 48h for the game jam{" "}
         <a href="https://ludumdare.com/" target="_blank">
           Ludum Dare
         </a>{" "}
         #43 for the theme "Sacrifices must be made", working with @jerripo for
         art and @syncrocat.
       </Text>
-      {/* <Text size="16px" color={Colors.TEXT_MUTED} className="descriptionBody">
-        The player draws cards to nurture their ecosystem, which grows and
-        changes over time. The player can discard cards to make room for new
-        ones, but must be careful not to let their ecosystem die out.
-      </Text> */}
+      <Text size="16px" color={Colors.TEXT_MUTED} className="descriptionBody">
+        Every round, the player is dealt 3 cards, of which they must activate
+        one, shuffle one back into the deck, and discard one. Creature cards
+        generate a certain number of stars per turn, and effect cards will have
+        different impacts on the creatures. The goal is to generate as many
+        stars as possible by the time the deck has depleted.
+      </Text>
     </Container>
   );
 };
@@ -77,16 +79,17 @@ const Container = styled.div`
   }
 
   .strollContainer {
-    padding: 0 4rem;
+    // padding: 0 4rem;
     display: flex;
     justify-content: center;
-    // width: 100%;
+    width: 100%;
   }
 
   .youtubeEmbed {
     aspect-ratio: 1;
     margin-top: 0.5rem;
     flex: 1;
+    max-width: 500px;
   }
 
   .descriptionText {

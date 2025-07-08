@@ -28,7 +28,6 @@ export default function TiltedCard({
   onMouseEnter,
   onClick,
   isSelected,
-  isVerySelected,
 }) {
   const ref = useRef(null);
 
@@ -72,9 +71,6 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
-    if (isVerySelected) {
-      return;
-    }
     scale.set(scaleOnHover);
     // opacity.set(1);
 
@@ -88,7 +84,7 @@ export default function TiltedCard({
     rotateY.set(0);
     rotateFigcaption.set(0);
 
-    if (isVerySelected) {
+    if (isSelected) {
       return;
     }
     // opacity.set(0);

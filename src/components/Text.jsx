@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Colors from "../constants/Colors.js";
 
-export default Text = ({ children, className, size, color }) => {
+export default Text = ({ children, className, size, color, ...otherProps }) => {
   return (
-    <Container className={className} color={color} size={size}>
+    <Container className={className} color={color} size={size} {...otherProps}>
       {children}
     </Container>
   );

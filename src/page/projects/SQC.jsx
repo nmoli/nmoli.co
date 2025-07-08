@@ -74,7 +74,7 @@ const Container = styled.div`
   }
 
   .strollContainer {
-    padding: 0 4rem;
+    padding: 0 0;
     display: flex;
     justify-content: center;
     // width: 100%;

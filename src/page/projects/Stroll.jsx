@@ -74,7 +74,13 @@ export default () => {
         map. Given the player's position and velocity, I queried the map for all
         points that could be in the player's path.
       </Text>
-      <img src="/public/projects/stroll_physics.png" className="graphImg" />
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <img
+          src="/public/projects/stroll_physics.png"
+          className="graphImg"
+          style={{ maxWidth: "400px" }}
+        />
+      </div>
       <Text size="16px " color={Colors.TEXT_MUTED} className="descriptionText">
         The pixel with the smallest distance to the player was identified, and a
         line to represent the collission surface was established between 2
@@ -117,15 +123,16 @@ const Container = styled.div`
   }
 
   .strollContainer {
-    padding: 0 4rem;
+    // padding: 0 4rem;
     display: flex;
     justify-content: center;
-    // width: 100%;
+    width: 100%;
   }
 
   .youtubeEmbed {
-    aspect-ratio: 1;
+    aspect-ratio: 9/7;
     margin-top: 0.5rem;
     flex: 1;
+    max-width: 500px;
   }
 `;

@@ -7,68 +7,17 @@ import Stroll from "./projects/Stroll";
 import EcoLogical from "./projects/EcoLogical";
 import SQC from "./projects/SQC";
 import StarBubble from "./projects/StarBubble";
+import DogeChat from "./projects/DogeChat";
 
-const ProjectsGrid = ({ setInfoPanelContent }) => {
-  const [clickedProject, setClickedProject] = useState(null);
-  const [selected, setSelected] = useState(null);
-
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
-
-  const projects = [
-    {
-      name: "Messenger Graph",
-      component: SampleProject,
-      url: "/public/projects/messenger_graph.png",
-    },
-    {
-      name: "Stroll",
-      component: Stroll,
-      url: "/public/projects/stroll_ico.png",
-    },
-    {
-      name: "EcoLogical",
-      component: EcoLogical,
-      url: "/public/projects/eco_ico.png",
-    },
-    {
-      name: "Secret Queen Chess",
-      component: SQC,
-      url: "/public/girl.jpg",
-    },
-    {
-      name: "StarBubble Engine",
-      component: StarBubble,
-      url: "/public/girl.jpg",
-    },
-  ];
-
+const ProjectsGrid = ({ selectedProject, setSelectedProject, projects }) => {
   return (
     <Container>
       {projects.map((project, index) => (
         <ProjectCard
           key={index}
-          url={project.url}
-          changeProject={(isClicked) => {
-            if (isClicked) {
-              setClickedProject(project);
-            }
-            setInfoPanelContent(project.component);
-            setSelected(project.name);
-          }}
-          resetProject={() => {
-            setInfoPanelContent(clickedProject.component || null);
-            setSelected(clickedProject?.name || null);
-          }}
-          clearProject={() => {
-            setInfoPanelContent(null);
-            setClickedProject(null);
-            setSelected(null);
-          }}
-          projectName={project.name}
-          isSelected={selected === project.name}
-          isVerySelected={clickedProject?.name === project.name}
+          project={project}
+          isSelected={selectedProject?.name === project.name}
+          setSelectedProject={() => setSelectedProject(project)}
         />
       ))}
     </Container>
@@ -79,7 +28,7 @@ export default ProjectsGrid;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 6rem);
+  grid-template-columns: repeat(1, 6rem);
   gap: 0.5rem;
   margin-top: 1rem;
   justify-content: center;
@@ -90,31 +39,17 @@ const Container = styled.div`
   }
 `;
 
-const ProjectCard = ({
-  isSelected,
-  isVerySelected,
-  isHighlighted,
-  url,
-  changeProject,
-  resetProject,
-  projectName = "Sample Project",
-  clearProject,
-}) => {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    console.log(isSelected, projectName);
-  }, [isSelected, projectName]);
+const ProjectCard = ({ project, isSelected, setSelectedProject }) => {
+  // console.log("Project", project.name, isSelected);
 
   return (
     <TiltedCard
-      imageSrc={url}
+      imageSrc={project.url}
       containerHeight="6rem"
       containerWidth="6rem"
       imageHeight="6rem"
       imageWidth="6rem"
       isSelected={isSelected}
-      isVerySelected={isVerySelected}
       rotateAmplitude={12}
       scaleOnHover={1.1}
       showMobileWarning={false}
@@ -122,17 +57,13 @@ const ProjectCard = ({
       displayOverlayContent={true}
       className="projectCard"
       onMouseEnter={() => {
-        changeProject();
+        setSelectedProject(project);
       }}
       onMouseLeave={() => {
-        resetProject();
+        // resetProject();
       }}
       onClick={() => {
-        if (isVerySelected) {
-          clearProject();
-        } else {
-          changeProject(true);
-        }
+        setSelectedProject(project);
       }}
     />
 

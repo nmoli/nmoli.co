@@ -24,6 +24,10 @@ let prevMouseY = 0;
 
 let starBubbleEngineDemo = null;
 
+let managerOneID = null;
+
+let isMovementOn = false;
+
 export function handleMouseMove(event) {
   const canvas = document.getElementById("wave-canvas");
   if (canvas instanceof HTMLCanvasElement) {
@@ -48,18 +52,22 @@ export function turnOnDoggoPostShitter() {
 
 export function turnOnStarBubbleEngineDemo(isOff) {
   if (isOff) {
+    starManagerRed?.setStars([]);
+    starManagerRed = null;
     starBubbleEngineDemo = null;
   }
 
-  if (starBubbleEngineDemo) {
-    starBubbleEngineDemo.remove();
-  }
   starBubbleEngineDemo = document.getElementById("star-bubble-demo");
+  // console.log("Turning on StarBubble Engine Demo", starBubbleEngineDemo);
   if (starBubbleEngineDemo) {
     starManagerRed = new StarManager();
     const rect = drawRectAtDiv(starBubbleEngineDemo);
     starManagerRed.addStarsInOrder(rect, 2);
   }
+}
+
+export function toggleMovement(movement) {
+  isMovementOn = movement;
 }
 
 export function toggleConfigs() {}
@@ -117,6 +125,23 @@ function interpolateColor(mouseX, mouseY, newCoords) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+export const initGame = () => {
+  starManager = new StarManager();
+
+  const rect = drawRectAtDiv(document.getElementById("wave-canvas-container"));
+  starManager.addStarsInOrder(rect);
+  managerOneID = starManager.managerID;
+
+  const hello = document.getElementById("star-bubble-demo");
+  if (hello) {
+    starManagerRed = new StarManager();
+    const rect2 = drawRectAtDiv(hello);
+    starManagerRed.addStarsInOrder(rect2, 2);
+  }
+
+  canvasHasBeenInit = false;
+};
+
 export default function runGameLoop(timestamp, setForceUpdate) {
   // Basic gameloop maintenance
   if (!timestamp && hasBeenInit) {
@@ -124,13 +149,7 @@ export default function runGameLoop(timestamp, setForceUpdate) {
   } else if (!hasBeenInit) {
     // Initialization
     hasBeenInit = true;
-    starManager = new StarManager();
-
-    const rect = drawRectAtDiv(
-      document.getElementById("wave-canvas-container")
-    );
-
-    starManager.addStarsInOrder(rect);
+    initGame();
   }
   const Δtime = ((timestamp || 0) - prevTimestamp) / 1000; // seconds
   prevTimestamp = timestamp;
@@ -155,33 +174,35 @@ export default function runGameLoop(timestamp, setForceUpdate) {
   };
 
   if (isClicked && IS_WRITE_MODE) {
-    const newPoin = {
-      x: currentMouseX,
-      y: currentMouseY,
-    };
-
-    randomListToLog.push(newPoin);
-
-    starManagerRed.addStarsInOrder(
-      [newPoin],
-      releasedSinceLastClicked ? false : 2
-    );
-    releasedSinceLastClicked = false;
-
-    wasJustClickingBroISTG = true;
+    // const newPoin = {
+    //   x: currentMouseX,
+    //   y: currentMouseY,
+    // };
+    // randomListToLog.push(newPoin);
+    // starManagerRed.addStarsInOrder(
+    //   [newPoin],
+    //   releasedSinceLastClicked ? false : 2
+    // );
+    // releasedSinceLastClicked = false;
+    // wasJustClickingBroISTG = true;
   } else if (wasJustClickingBroISTG) {
     wasJustClickingBroISTG = false;
     releasedSinceLastClicked = true;
-    console.log(
-      `[${randomListToLog
-        .map((item) => {
-          return `{ x: ${item.x}, y: ${item.y} }`;
-        })
-        .join(", ")}`
-    );
+    // console.log(
+    //   `[${randomListToLog
+    //     .map((item) => {
+    //       return `{ x: ${item.x}, y: ${item.y} }`;
+    //     })
+    //     .join(", ")}`
+    // );
   }
 
   starManager.mouseRepelStars(
+    currentMouseX,
+    currentMouseY,
+    Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2)
+  );
+  starManagerRed?.mouseRepelStars(
     currentMouseX,
     currentMouseY,
     Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2)
@@ -193,13 +214,26 @@ export default function runGameLoop(timestamp, setForceUpdate) {
         star,
         Δtime,
         star.outStars[0],
-        timeDeltaTally > 0.03 && isClicked && !IS_WRITE_MODE
+        timeDeltaTally > 0.03 && isMovementOn && !IS_WRITE_MODE
       );
       star.xPlusCosmetic = xPlusCosmetic;
       star.yPlusCosmetic = yPlusCosmetic;
     });
 
     starManager.setStars(starManager.stars);
+
+    starManagerRed?.stars?.forEach((star) => {
+      const { xPlusCosmetic, yPlusCosmetic } = moveStarCosmetic(
+        star,
+        Δtime,
+        star.outStars[0],
+        timeDeltaTally > 0.03 && isMovementOn && !IS_WRITE_MODE
+      );
+      star.xPlusCosmetic = xPlusCosmetic;
+      star.yPlusCosmetic = yPlusCosmetic;
+    });
+
+    starManagerRed?.setStars(starManagerRed.stars);
   }
 
   if (timeDeltaTally > 0.03) {
@@ -233,9 +267,12 @@ export default function runGameLoop(timestamp, setForceUpdate) {
     ctx.lineCap = "round";
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let stars = starManager.stars || [];
+    let stars =
+      [
+        ...starManager.stars,
+        ...(starManagerRed ? starManagerRed?.stars : []),
+      ] || [];
 
-    ctx.lineWidth = 3;
     const lastCoords = { x: 0, y: 0 };
     stars.forEach((star) => {
       const newCoords = {
@@ -244,11 +281,11 @@ export default function runGameLoop(timestamp, setForceUpdate) {
       };
       ctx.beginPath();
 
-      ctx.strokeStyle = interpolateColor(
-        currentMouseX,
-        currentMouseY,
-        newCoords
-      );
+      ctx.lineWidth = managerOneID === star.managerID ? 3 : 1;
+      ctx.strokeStyle =
+        managerOneID === star.managerID
+          ? interpolateColor(currentMouseX, currentMouseY, newCoords)
+          : "yellow";
 
       if (newCoords.x !== lastCoords.x || newCoords.y !== lastCoords.y) {
         ctx.moveTo(Math.floor(newCoords.x), Math.floor(newCoords.y));
