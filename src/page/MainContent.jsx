@@ -19,27 +19,27 @@ const MainContent = () => {
     {
       name: "Dogechat",
       component: DogeChat,
-      url: "docs/assets/react_wheel_3.png",
+      url: "nmoli.co/assets/react_wheel_3.png",
     },
     {
       name: "StarBubble Engine",
       component: "StarBubble Engine",
-      url: "docs/assets/starbubble.png",
+      url: "nmoli.co/assets/starbubble.png",
     },
     {
       name: "Messenger",
       component: SampleProject,
-      url: "docs/assets/messenger_graph_2_anonymized.png",
+      url: "nmoli.co/assets/messenger_graph_2_anonymized.png",
     },
     {
       name: "Stroll",
       component: Stroll,
-      url: "docs/assets/stroll_ico.png",
+      url: "nmoli.co/assets/stroll_ico.png",
     },
     {
       name: "EcoLogical",
       component: EcoLogical,
-      url: "docs/assets/eco_ico.png",
+      url: "nmoli.co/assets/eco_ico.png",
     },
   ];
 
