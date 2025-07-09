@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ProjectsGrid from "./ProjectsGrid";
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import InfoPanelEmpty from "./InfoPanelEmpty";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import "overlayscrollbars/styles/overlayscrollbars.css"; // Import default styles
@@ -47,7 +47,7 @@ const MainContent = () => {
     const project = projects.find((p) => p.name === projectName);
     if (project) {
       setSelectedProject(project);
-      scrollRef.current?.scrollTo(0, 0); // Scroll to top of the about panel
+      // scrollRef.current?.scrollTo(0, 0); // Scroll to top of the about panel
     } else {
       setSelectedProject(null);
     }

@@ -96,7 +96,7 @@ export default ({ changeProject }) => {
         - Has reactions
       </Text>{" "}
       <Text size="16px " color={Colors.TEXT_MUTED}>
-        - Is not a bloated buggy mess on the FE (@zuck)
+        - Is not a bloated buggy mess on the FE
       </Text>
       <Text size="16px " color={Colors.TEXT_MUTED}>
         - Supports multiple instances of chats between the same 2 users
