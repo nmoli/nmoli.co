@@ -17,7 +17,7 @@ export default ({ changeProject }) => {
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>
-        <a href="https://www.secretqueenchess.com" target="_blank">
+        <a href="https://www.github.com" target="_blank">
           <Text size="16px" color={Colors.LINK}>
             Github
           </Text>

@@ -17,9 +17,11 @@ export default () => {
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>
-        <Text size="16px" color={Colors.LINK}>
-          Github
-        </Text>
+        <a href="https://www.github.com" target="_blank">
+          <Text size="16px" color={Colors.LINK}>
+            Github
+          </Text>
+        </a>
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>

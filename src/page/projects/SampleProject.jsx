@@ -17,7 +17,7 @@ export default ({ changeProject }) => {
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>
-        <a href="https://www.secretqueenchess.com" target="_blank">
+        <a href="https://www.github.com" target="_blank">
           <Text size="16px" color={Colors.LINK}>
             Github
           </Text>
@@ -81,7 +81,8 @@ export default ({ changeProject }) => {
         hundreds of files in hundreds of folders, which makes it not very
         readable. I was curious to see what my historic usage of the app looked
         like, so I built a parser and visualizer, and tweaked it until I got
-        something I thought was most informative, pictured above.
+        something I thought was reasonably interesting to look at, pictured
+        above.
       </Text>
       {/* <Text size="16px" color={Colors.TEXT_MUTED} className="description">
         It was quite disturbing to find out that some months at the height of
