@@ -59,7 +59,10 @@ const InfoPanelEmpty = ({ changeProject }) => {
         cat.
       </Text>
       <Text size="16px" color={Colors.TEXT_MUTED} style={{ marginTop: "1rem" }}>
-        You can contact me at nick.a.molinari@gmail.com
+        You can contact me at{" "}
+        <span style={{ color: Colors.TEXT_HIGHLIGHT }}>
+          nick.a.molinari@gmail.com
+        </span>
       </Text>
     </Container>
   );
