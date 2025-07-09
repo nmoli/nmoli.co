@@ -17,7 +17,7 @@ export default () => {
           ·
         </Text>
         <a href="https://www.secretqueenchess.com" target="_blank">
-          <Text size="16px" color={Colors.ACCENT_SOFT}>
+          <Text size="16px" color={Colors.LINK}>
             Github
           </Text>
         </a>

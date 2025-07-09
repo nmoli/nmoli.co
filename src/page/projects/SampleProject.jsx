@@ -18,7 +18,7 @@ export default ({ changeProject }) => {
           ·
         </Text>
         <a href="https://www.secretqueenchess.com" target="_blank">
-          <Text size="16px" color={Colors.ACCENT_SOFT}>
+          <Text size="16px" color={Colors.LINK}>
             Github
           </Text>
         </a>
@@ -91,7 +91,11 @@ export default ({ changeProject }) => {
       <Text size="16px" color={Colors.TEXT_MUTED} className="description">
         This graph also happens to visually showcase the impact of{" "}
         <span
-          style={{ color: Colors.ACCENT_SOFT, cursor: "pointer" }}
+          style={{
+            color: Colors.LINK,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
           onClick={() => changeProject("Dogechat")}
         >
           developing dogechat

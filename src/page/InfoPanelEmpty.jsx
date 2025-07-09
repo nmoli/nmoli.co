@@ -5,10 +5,10 @@ const InfoPanelEmpty = ({ changeProject }) => {
   return (
     <Container>
       <Text size="16px" color={Colors.TEXT_MUTED} style={{ marginTop: "1rem" }}>
-        I'm a software developer with 6+ years of professional experience,
+        I'm a software developer with 7+ years of professional experience,
         mostly building{" "}
-        <span style={{ color: Colors.ACCENT_SOFT }}>web apps</span> and{" "}
-        <span style={{ color: Colors.ACCENT_SOFT }}>cloud systems</span>, and
+        <span style={{ color: Colors.TEXT_HIGHLIGHT }}>web apps</span> and{" "}
+        <span style={{ color: Colors.TEXT_HIGHLIGHT }}>cloud systems</span>, and
         15+ years of hobby experience in all sorts of technologies.
       </Text>
       <Text size="16px" color={Colors.TEXT_MUTED} style={{ marginTop: "1rem" }}>
@@ -20,21 +20,33 @@ const InfoPanelEmpty = ({ changeProject }) => {
       <Text size="16px" color={Colors.TEXT_MUTED} style={{ marginTop: "1rem" }}>
         Outside of work, I tend to build various{" "}
         <span
-          style={{ color: Colors.ACCENT_SOFT, cursor: "pointer" }}
+          style={{
+            color: Colors.LINK,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
           onClick={() => changeProject("Dogechat")}
         >
           web technologies
         </span>{" "}
         for personal use or to learn more about a topic. I also participate in{" "}
         <span
-          style={{ color: Colors.ACCENT_SOFT, cursor: "pointer" }}
+          style={{
+            color: Colors.LINK,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
           onClick={() => changeProject("Stroll")}
         >
           game jams
         </span>
         , and sometimes do{" "}
         <span
-          style={{ color: Colors.ACCENT_SOFT, cursor: "pointer" }}
+          style={{
+            color: Colors.LINK,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
           onClick={() => changeProject("Messenger")}
         >
           other things

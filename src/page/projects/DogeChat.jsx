@@ -18,7 +18,7 @@ export default ({ changeProject }) => {
           ·
         </Text>
         <a href="https://www.secretqueenchess.com" target="_blank">
-          <Text size="16px" color={Colors.ACCENT_SOFT}>
+          <Text size="16px" color={Colors.LINK}>
             Github
           </Text>
         </a>
@@ -41,7 +41,7 @@ export default ({ changeProject }) => {
           ></iframe>
         </div>
         <div className="featuresContainer">
-          <Text size="24px" color={Colors.TEXT_MUTED}>
+          <Text size="24px" color={Colors.TEXT_PRIMARY}>
             Features:
           </Text>
           <Text size="16px" color={Colors.TEXT_MUTED}>
@@ -96,11 +96,10 @@ export default ({ changeProject }) => {
         - Has reactions
       </Text>{" "}
       <Text size="16px " color={Colors.TEXT_MUTED}>
-        - Is not a bloated buggy mess on the FE (looking at you, Messenger)
+        - Is not a bloated buggy mess on the FE (@zuck)
       </Text>
       <Text size="16px " color={Colors.TEXT_MUTED}>
-        - Supports multiple instances of chats between the same 2 users (we also
-        worked together, so we wanted a "work" chat and a "personal" chat)
+        - Supports multiple instances of chats between the same 2 users
       </Text>
       <Text size="16px " color={Colors.TEXT_MUTED} className="descriptionBody">
         As a side benefit, it was nice to be able to encrypt our own messages
@@ -112,13 +111,17 @@ export default ({ changeProject }) => {
         .
       </Text>
       <Text size="16px " color={Colors.TEXT_MUTED} className="descriptionBody">
-        As you can see, function was prioritized over form.
+        As you may notice, function was prioritized over form.
       </Text>
       <Text size="16px " color={Colors.TEXT_MUTED} className="descriptionBody">
         dogechat was a smashing success in the limited social circles in which
         it was released, responsible for the downfall of{" "}
         <span
-          style={{ color: Colors.ACCENT_SOFT, cursor: "pointer" }}
+          style={{
+            color: Colors.LINK,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
           onClick={() => changeProject("Messenger")}
         >
           my personal messenger usage.

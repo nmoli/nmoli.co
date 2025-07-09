@@ -102,7 +102,7 @@ const MainContent = () => {
                   cursor: "pointer",
                   flex: 1,
                   textAlign: "left",
-                  color: Colors.ACCENT_SOFT,
+                  color: Colors.LINK,
                 }}
               >
                 {`< Back`}
@@ -174,7 +174,7 @@ const Container = styled.div`
   }
 
   a {
-    color: ${Colors.ACCENT_SOFT};
+    color: ${Colors.LINK};
   }
 
   .internalContainer {
@@ -186,7 +186,7 @@ const Container = styled.div`
   }
 
   .os-scrollbar-handle {
-    background-color: ${Colors.ACCENT};
+    background-color: ${Colors.TEXT_PRIMARY};
     opacity: 0.23;
   }
 
@@ -270,10 +270,7 @@ const Container = styled.div`
     // transition: background-position 0.8s ease;
 
     .red {
-      color: #00b8d9;
-      // -webkit-text-fill-color: #00b8d9; /* Keep red letters solid */
-      background: none;
-      // -webkit-background-clip: border-box; /* Disable background-clip for red letters */
+      color: ${Colors.TEXT_HIGHLIGHT};
     }
   }
 

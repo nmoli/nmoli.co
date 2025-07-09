@@ -17,7 +17,7 @@ export default () => {
           ·
         </Text>
         <a href="https://www.newgrounds.com/portal/view/721132" target="_blank">
-          <Text size="16px" color={Colors.ACCENT_SOFT}>
+          <Text size="16px" color={Colors.LINK}>
             Newgrounds
           </Text>
         </a>

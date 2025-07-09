@@ -8,7 +8,7 @@ export default () => {
   return (
     <Container>
       <Text size="24px" color={Colors.TEXT_HIGHLIGHT}>
-        St. Roll goes for a stROLL
+        stRoll
       </Text>
       <div className="infoRow">
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
@@ -17,14 +17,14 @@ export default () => {
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>
-        <Text size="16px" color={Colors.ACCENT_SOFT}>
+        <Text size="16px" color={Colors.LINK}>
           Github
         </Text>
         <Text size="16px" color={Colors.TEXT_PRIMARY}>
           ·
         </Text>
         <a href="https://www.newgrounds.com/portal/view/715384" target="_blank">
-          <Text size="16px" color={Colors.ACCENT_SOFT}>
+          <Text size="16px" color={Colors.LINK}>
             Newgrounds
           </Text>
         </a>
